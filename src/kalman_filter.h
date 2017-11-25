@@ -93,7 +93,7 @@ public:
     * h(x) approx x
     * @param x The predicted state at k+1
   */
-  VectorXd  ProcessRM(const Eigen::VectorXd& x) ;
+  Eigen::VectorXd  ProcessRM(const Eigen::VectorXd& x) ;
 
 };
 
