@@ -34,7 +34,7 @@ void KalmanFilter::Predict() {
 	P_ = F_ * P_ * Ft + Q_;
 }
 
-void KalmanFilter::Update(const VectorXd &z,const Eigen::MatrixXd H,const Eigen::MatrixXd R) {
+void KalmanFilter::Update(const Eigen::VectorXd &z,const Eigen::MatrixXd H,const Eigen::MatrixXd R) {
 	/**
   TODO:
 	 * update the state by using Kalman Filter equations
@@ -54,7 +54,7 @@ void KalmanFilter::Update(const VectorXd &z,const Eigen::MatrixXd H,const Eigen:
 	P_ = (I - K * H) * P_;
 }
 
-void KalmanFilter::Update(const VectorXd &z) {
+void KalmanFilter::Update(const Eigen::VectorXd &z) {
 	/**
   TODO:
 	 * update the state by using Kalman Filter equations
@@ -74,7 +74,7 @@ void KalmanFilter::Update(const VectorXd &z) {
 	P_ = (I - K * H_) * P_;
 }
 
-void KalmanFilter::UpdateEKF(const VectorXd &z) {
+void KalmanFilter::UpdateEKF(const Eigen::VectorXd &z) {
 	/**
   TODO:
 	 * update the state by using Extended Kalman Filter equations
@@ -94,7 +94,7 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
 	P_ = (I - K * H_) * P_;
 }
 
-void KalmanFilter::UpdateEKF(const VectorXd &z, const Eigen::MatrixXd H,const Eigen::MatrixXd R ) {
+void KalmanFilter::UpdateEKF(const Eigen::VectorXd &z, const Eigen::MatrixXd H,const Eigen::MatrixXd R ) {
 	/**
   TODO:
 	 * update the state by using Extended Kalman Filter equations
@@ -116,7 +116,7 @@ void KalmanFilter::UpdateEKF(const VectorXd &z, const Eigen::MatrixXd H,const Ei
 	P_ = (I - K * H) * P_;
 }
 
-VectorXd  KalmanFilter::ProcessRM(const VectorXd& x){
+VectorXd  KalmanFilter::ProcessRM(const Eigen::VectorXd& x){
 
 	const float px = x[0];
 	const float py = x[1];

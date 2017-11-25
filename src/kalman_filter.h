@@ -54,7 +54,7 @@ public:
      * @param F_in Transition matrix
      * @param Q_in Process covariance matrix
      */
-  void Init(VectorXd &x_in, MatrixXd &P_in, MatrixXd &F_in, MatrixXd &Q_in);
+  void Init(Eigen::VectorXd &x_in, Eigen::MatrixXd &P_in, Eigen::MatrixXd &F_in, Eigen::MatrixXd &Q_in);
   /**
    * Prediction Predicts the state and the state covariance
    * using the process model
@@ -93,7 +93,7 @@ public:
     * h(x) approx x
     * @param x The predicted state at k+1
   */
-  VectorXd  ProcessRM(const VectorXd& x) ;
+  VectorXd  ProcessRM(const Eigen::VectorXd& x) ;
 
 };
 
