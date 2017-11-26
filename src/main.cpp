@@ -66,7 +66,7 @@ int main()
     	  string sensor_type;
     	  iss >> sensor_type;
 
-    	  if (sensor_type.compare("L") == 0) {
+/*    	  if (sensor_type.compare("L") == 0) {
       	  		meas_package.sensor_type_ = MeasurementPackage::LASER;
           		meas_package.raw_measurements_ = VectorXd(2);
           		float px;
@@ -76,11 +76,9 @@ int main()
           		meas_package.raw_measurements_ << px, py;
           		iss >> timestamp;
           		meas_package.timestamp_ = timestamp;
-          } else if (sensor_type.compare("R") == 0) {
+          } else */if (sensor_type.compare("R") == 0) {
 
-        	  	return;
-
-      	  		/*meas_package.sensor_type_ = MeasurementPackage::RADAR;
+      	  		meas_package.sensor_type_ = MeasurementPackage::RADAR;
           		meas_package.raw_measurements_ = VectorXd(3);
           		float ro;
       	  		float theta;
@@ -90,8 +88,8 @@ int main()
           		iss >> ro_dot;
           		meas_package.raw_measurements_ << ro,theta, ro_dot;
           		iss >> timestamp;
-          		meas_package.timestamp_ = timestamp;*/
-          }
+          		meas_package.timestamp_ = timestamp;
+         // }
           float x_gt;
     	  float y_gt;
     	  float vx_gt;
@@ -138,7 +136,12 @@ int main()
           auto msg = "42[\"estimate_marker\"," + msgJson.dump() + "]";
           // std::cout << msg << std::endl;
           ws.send(msg.data(), msg.length(), uWS::OpCode::TEXT);
-	  
+          //test code
+          }
+          else{
+        	  std::cout << "not radar data"<<std::endl;
+          }
+          // test code end
         }
       } else {
         
