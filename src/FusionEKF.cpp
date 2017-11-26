@@ -113,18 +113,18 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
     	//ekf_.x_ << rho*cos(phi),rho*sin(phi),rho_dot*cos(phi),rho_dot*sin(phi);
 
     	x << rho*cos(phi),rho*sin(phi),0,0;
-    	 Hj_ = tools.CalculateJacobian(ekf_.x_);
-    	 ekf_.Init(x,P,F,Hj_,R_radar_,Q);
+
     }
     else if (measurement_pack.sensor_type_ == MeasurementPackage::LASER) {
       /**
       Initialize state.
       */
     	x << measurement_pack.raw_measurements_[0], measurement_pack.raw_measurements_[1], 0, 0;
-    	ekf_.Init(x,P,F,H_laser_,R_laser_,Q);
     }
 
     previous_timestamp_ = measurement_pack.timestamp_;
+
+    ekf_.Init(x,P,F,Q);
 
     cout <<"Check x_ & P_ init"<< endl;
     cout << "x_ = " << ekf_.x_ << endl;
