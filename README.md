@@ -7,7 +7,7 @@
 [image3]:  ./img/Capture_OnlyRadarData1.png "Test3"
 [image4]:  ./img/Capture_OnlyRadarData2.png "Test4"
 
-![Image link](https://github.com/sidharth240887/CARND-Term2-Project1/img/Capture_FusionLidar&radarDataSet1.PNG)
+
 
 The goal of this project is to use a [Extended Kalman Filter](https://en.wikipedia.org/wiki/Extended_Kalman_filter) to estimate the state of a moving object of interest with noisy lidar and radar measurements.
 
@@ -72,7 +72,7 @@ Below is the output of my EKF from two different simulated runs using the input 
 |  vx   | 0.4513  |
 |  vy   | 0.4399  |
 
-Test2
+![Image link](https://github.com/sidharth240887/CARND-Term2-Project1/blob/master/img/Capture_FusionLidar%26radarDataSet1.PNG)
 
 **Test 2**: input  Simulator Data Set 2, Both Lidar and Radar Measurements
 
@@ -83,7 +83,8 @@ Test2
 |  vx   | 0.4579  |
 |  vy   | 0.4966  |
 
-![alt text][image2]
+![Image link](https://github.com/sidharth240887/CARND-Term2-Project1/blob/master/img/Capture_FusionLidar%26radarDataSet2.PNG)
+
 
 ## Some additional test done with only radar measurement
 
@@ -96,7 +97,7 @@ Test2
 |  vx   | 0.5575  |
 |  vy   | 0.6567  |
 
-![alt text][image3]
+![Image link](https://github.com/sidharth240887/CARND-Term2-Project1/blob/master/img/Capture_OnlyRadarData1.PNG)
 
 
 **Test 4**: input  Simulator Data Set 2, **Only Radar Measurements**
@@ -108,4 +109,11 @@ Test2
 |  vx   | 0.5870  |
 |  vy   | 0.7338  |
 
-![alt text][image4]
+![Image link](https://github.com/sidharth240887/CARND-Term2-Project1/blob/master/img/Capture_OnlyRadarData2.PNG)
+
+
+#### Improvements done 
+
+- Added check for small time stamp difference,  Second of two (nearly) simultaneous measurements -> skip prediction.
+- Angle normalization done which improved the results.
+- Avoid Divide by Zero throughout the Implementation
