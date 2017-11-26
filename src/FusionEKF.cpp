@@ -28,9 +28,9 @@ FusionEKF::FusionEKF() {
         0.0, 0.0225;
 
   //measurement covariance matrix - radar
-  R_radar_ << 0.08, 0.0, 0.0,
-        0.0, 0.0006, 0.0,
-        0.0, 0.0, 0.08;
+  R_radar_ << 0.09, 0.0, 0.0,
+        0.0, 0.0009, 0.0,
+        0.0, 0.0, 0.09;
 
   H_laser_ << 1.0,0.0,0.0,0.0,
 		  	  0.0,1.0,0.0,0.0;
@@ -126,10 +126,6 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
 
     ekf_.Init(x,P,F,Q);
 
-    cout <<"Check x_ & P_ init"<< endl;
-    cout << "x_ = " << ekf_.x_ << endl;
-    cout << "P_ = " << ekf_.P_ << endl;
-
     // done initializing, no need to predict or update
     is_initialized_ = true;
     return;
@@ -175,9 +171,6 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
 
   ekf_.Predict();
 
-  cout <<"Predict x_ & P_ init"<< endl;
-  cout << "x_ = " << ekf_.x_ << endl;
-  cout << "P_ = " << ekf_.P_ << endl;
 
   /*****************************************************************************
    *  Update
