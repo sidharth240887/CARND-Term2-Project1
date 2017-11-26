@@ -140,6 +140,8 @@ int main()
           }
           else{
         	  std::cout << "not radar data"<<std::endl;
+        	  std::string msg = "42[\"manual\",{}]";
+        	  ws.send(msg.data(), msg.length(), uWS::OpCode::TEXT);
           }
           // test code end
         }
