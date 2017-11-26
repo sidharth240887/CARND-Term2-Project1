@@ -70,7 +70,7 @@ Below is the output of my EKF from two different simulated runs using the input 
 |  vx   | 0.4513  |
 |  vy   | 0.4399  |
 
-![alt text][image1]
+[image1]
 
 **Test 2**: input  Simulator Data Set 2, Both Lidar and Radar Measurements
 
