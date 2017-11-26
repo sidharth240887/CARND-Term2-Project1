@@ -47,15 +47,6 @@ public:
       Eigen::MatrixXd &H_in, Eigen::MatrixXd &R_in, Eigen::MatrixXd &Q_in);
 
   /**
-     * Overloaded Init function
-     * Init Initializes Kalman filter
-     * @param x_in Initial state
-     * @param P_in Initial state covariance
-     * @param F_in Transition matrix
-     * @param Q_in Process covariance matrix
-     */
-  void Init(Eigen::VectorXd &x_in, Eigen::MatrixXd &P_in, Eigen::MatrixXd &F_in, Eigen::MatrixXd &Q_in);
-  /**
    * Prediction Predicts the state and the state covariance
    * using the process model
    * @param delta_T Time between k and k+1 in s
@@ -67,13 +58,6 @@ public:
    * @param z The measurement at k+1
    */
   void Update(const Eigen::VectorXd &z);
-
-  /**
-    * Overloaded function of Update
-    * Updates the state by using standard Kalman Filter equations
-    * @param z The measurement at k+1
-    */
-   void Update(const Eigen::VectorXd &z,const Eigen::MatrixXd H,const Eigen::MatrixXd R );
 
   /**
    * Updates the state by using Extended Kalman Filter equations
