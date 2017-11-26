@@ -87,8 +87,8 @@ VectorXd  KalmanFilter::ProcessRM(const Eigen::VectorXd& x){
 	const float vx = x[2];
 	const float vy = x[3];
 
-	const float rho = sqrt(px * px + py * py);
-	const float phi = atan2(py, px);
+	 float rho = sqrt(px * px + py * py);
+	 float phi = atan2(py, px);
 
 	 if(rho < 0.000001)
 	    rho = 0.000001;
