@@ -42,7 +42,7 @@ FusionEKF::FusionEKF() {
     * Set the process and measurement noises
   */
 
-  ekf_.P_ = MatrixXd(4, 4);
+  /*ekf_.P_ = MatrixXd(4, 4);
 
   ekf_.P_ << 1, 0, 0, 0,
   	         0, 1, 0, 0,
@@ -54,7 +54,7 @@ FusionEKF::FusionEKF() {
   ekf_.F_ << 1, 0, 1, 0,
 		  	 0, 1, 0, 1,
 			 0, 0, 1, 0,
-			 0, 0, 0, 1;
+			 0, 0, 0, 1;*/
 
   //set the acceleration noise components
   noise_ax = 9;
@@ -83,8 +83,24 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
     */
     // first measurement
     cout << "EKF: " << endl;
-    ekf_.x_  = VectorXd(4);
-    ekf_.x_ << 1, 1, 1, 1;
+    auto x  = VectorXd(4);
+    x << 1, 1, 1, 1;
+
+    auto P = MatrixXd(4, 4);
+
+    P << 1, 0, 0, 0,
+    		0, 1, 0, 0,
+			0, 0, 1000, 0,
+			0, 0, 0, 1000;
+
+    auto F = MatrixXd(4, 4);
+
+    F << 1, 0, 1, 0,
+    		0, 1, 0, 1,
+			0, 0, 1, 0,
+			0, 0, 0, 1;
+
+    auto Q = MatrixXd(4,4);
 
     if (measurement_pack.sensor_type_ == MeasurementPackage::RADAR) {
     	/**
@@ -96,14 +112,16 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
 
     	//ekf_.x_ << rho*cos(phi),rho*sin(phi),rho_dot*cos(phi),rho_dot*sin(phi);
 
-    	ekf_.x_ << rho*cos(phi),rho*sin(phi),0,0;
+    	x << rho*cos(phi),rho*sin(phi),0,0;
+    	 Hj_ = tools.CalculateJacobian(ekf_.x_);
+    	 ekf_.Init(x,P,F,Hj_,R_radar_,Q);
     }
     else if (measurement_pack.sensor_type_ == MeasurementPackage::LASER) {
       /**
       Initialize state.
       */
-    	ekf_.x_ << measurement_pack.raw_measurements_[0], measurement_pack.raw_measurements_[1], 0, 0;
-
+    	x << measurement_pack.raw_measurements_[0], measurement_pack.raw_measurements_[1], 0, 0;
+    	ekf_.Init(x,P,F,H_laser_,R_laser_,Q);
     }
 
     previous_timestamp_ = measurement_pack.timestamp_;
@@ -148,7 +166,6 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
   ekf_.F_(1, 3) = dt;
 
   //set the process covariance matrix Q
-  ekf_.Q_ = MatrixXd(4, 4);
 
   ekf_.Q_ <<  dt_4/4*noise_ax, 0, dt_3/2*noise_ax, 0,
   			   0, dt_4/4*noise_ay, 0, dt_3/2*noise_ay,
