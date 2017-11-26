@@ -2,12 +2,12 @@
 
 [//]: # (Image References)
 
-[image1]: CARND-Term2-Project1/img/Capture_FusionLidar&radarDataSet1.PNG "Test1"
-[image2]: ./img/Capture_FusionLidar&radarDataSet2.png "Test2"
-[image3]: ./img/Capture_OnlyRadarData1.png "Test3"
-[image4]: ./img/Capture_OnlyRadarData2.png "Test4"
+[image1]:  ./img/Capture_FusionLidar&radarDataSet1.PNG "Test1"
+[image2]:  ./img/Capture_FusionLidar&radarDataSet2.png "Test2"
+[image3]:  ./img/Capture_OnlyRadarData1.png "Test3"
+[image4]:  ./img/Capture_OnlyRadarData2.png "Test4"
 
-![alt tag](CARND-Term2-Project1/img/Capture_FusionLidar&radarDataSet1.PNG)
+![Image link](https://github.com/sidharth240887/CARND-Term2-Project1/img/Capture_FusionLidar&radarDataSet1.PNG)
 
 The goal of this project is to use a [Extended Kalman Filter](https://en.wikipedia.org/wiki/Extended_Kalman_filter) to estimate the state of a moving object of interest with noisy lidar and radar measurements.
 
@@ -72,7 +72,7 @@ Below is the output of my EKF from two different simulated runs using the input 
 |  vx   | 0.4513  |
 |  vy   | 0.4399  |
 
-[image1]
+Test2
 
 **Test 2**: input  Simulator Data Set 2, Both Lidar and Radar Measurements
 
