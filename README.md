@@ -7,7 +7,7 @@
 
 The goal of this project is to use a [Extended Kalman Filter](https://en.wikipedia.org/wiki/Extended_Kalman_filter) to estimate the state of a moving object of interest with noisy lidar and radar measurements.
 
-The program, written in C++, has the following steps:
+The program, is written in C++, has the following steps:
 1. Takes noisy Lidar and Radar measurements about the position of the moving object (Contained in `data` folder) at time "k".
 2. Transforms Radar measurements from Polar to Cartesian, and fuses them with the Lidar measurements.
 3. Passes them to the Extended Kalman Filter (EKF), obtaining an estimation of the position of the object at time "k+1": `x, y, v_x, v_y`
