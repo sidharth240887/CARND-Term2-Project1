@@ -2,10 +2,12 @@
 
 [//]: # (Image References)
 
-[image1]: ./img/Capture_FusionLidar&radarDataSet1.png "Test1"
+[image1]: CARND-Term2-Project1/img/Capture_FusionLidar&radarDataSet1.PNG "Test1"
 [image2]: ./img/Capture_FusionLidar&radarDataSet2.png "Test2"
 [image3]: ./img/Capture_OnlyRadarData1.png "Test3"
 [image4]: ./img/Capture_OnlyRadarData2.png "Test4"
+
+![alt tag](CARND-Term2-Project1/img/Capture_FusionLidar&radarDataSet1.PNG)
 
 The goal of this project is to use a [Extended Kalman Filter](https://en.wikipedia.org/wiki/Extended_Kalman_filter) to estimate the state of a moving object of interest with noisy lidar and radar measurements.
 
