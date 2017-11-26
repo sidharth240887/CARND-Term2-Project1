@@ -115,6 +115,9 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
 
     ekf_.Init(x,P_,F_,Q_);
 
+    cout <<"Check x_ & P_ init"<< endl;
+    cout << "x_ = " << ekf_.x_ << endl;
+    cout << "P_ = " << ekf_.P_ << endl;
 
     // done initializing, no need to predict or update
     is_initialized_ = true;
@@ -153,6 +156,10 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
 
 
   ekf_.Predict();
+
+  cout <<"Predict x_ & P_ init"<< endl;
+  cout << "x_ = " << ekf_.x_ << endl;
+  cout << "P_ = " << ekf_.P_ << endl;
 
   /*****************************************************************************
    *  Update
